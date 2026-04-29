@@ -68,5 +68,6 @@
 ## 7. 실행 방법
 
 ```bash
-pip install -r requirements.txt
+uv pip install streamlit plotly beautifulsoup4 pandas
 streamlit run yes24/src/dashboard.py
+```
