@@ -187,11 +187,11 @@ if df is not None and not df.empty:
     
     # 3. 리뷰 효율성 분석 섹션 (신규)
     st.subheader("🎯 리뷰 효율성 분석 (Review Efficiency)")
-    st.info("""**리뷰 효율성 = 리뷰수 / 판매지수**  
-    판매량 대비 독자들의 피드백 활동이 얼마나 활발한지를 나타냅니다.""")
+    st.info("""**리뷰 효율성 = 판매지수 / 리뷰수**  
+    리뷰 1건당 발생하는 판매지수를 의미하며, 판매 성과 대비 독자들의 피드백 밀도를 나타냅니다.""")
     
-    # 파생 변수 계산
-    df['리뷰 효율성'] = df.apply(lambda x: x['리뷰수'] / x['판매지수'] if x['판매지수'] > 0 else 0, axis=1)
+    # 파생 변수 계산 (리뷰수가 0인 경우 제외 또는 처리)
+    df['리뷰 효율성'] = df.apply(lambda x: x['판매지수'] / x['리뷰수'] if x['리뷰수'] > 0 else 0, axis=1)
     
     row2_col1, row2_col2 = st.columns(2)
     
