@@ -42,14 +42,17 @@
 </tbody>
 </table>
 
-<img src="file:///c:/Users/View/wiset-inflearn/yes24/images/publisher_share.png" alt="출판사 점유율" style="max-width: 100%; display: block; margin: 20px auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+
+![출판사 점유율](../images/publisher_share.png)
+
 </div>
 
 <hr style="margin: 2em 0;">
 
 <div style="page-break-inside: avoid; margin-bottom: 2em;">
 <h2 style="color: #1e3a8a; border-left: 5px solid #3b82f6; padding-left: 12px; margin-top: 1.5em; margin-bottom: 0.5em;">2. 제목 키워드 분석 (Keyword Trend Pattern)</h2>
-<img src="file:///c:/Users/View/wiset-inflearn/yes24/images/keyword_trend.png" alt="키워드 트렌드" style="max-width: 100%; display: block; margin: 20px auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+
+![키워드 트렌드](../images/keyword_trend.png)
 
 - **주요 관찰 패턴**: 'AI', 'Python', 'ChatGPT', '데이터' 등의 최신 기술 키워드가 상위권에서 반복적으로 관찰됩니다.
 - **도출 가설**: 시장 수요가 높은 특정 키워드를 제목에 노출하는 것이 독자의 구매 경향과 연관된 패턴으로 나타납니다.
@@ -59,8 +62,10 @@
 
 <div style="page-break-inside: avoid; margin-bottom: 2em;">
 <h2 style="color: #1e3a8a; border-left: 5px solid #3b82f6; padding-left: 12px; margin-top: 1.5em; margin-bottom: 0.5em;">3. 가격대별 판매 성과 패턴 (Price Performance Pattern)</h2>
-<img src="file:///c:/Users/View/wiset-inflearn/yes24/images/price_dist.png" alt="가격 분포" style="max-width: 100%; display: block; margin: 10px auto; border-radius: 8px;">
-<img src="file:///c:/Users/View/wiset-inflearn/yes24/images/price_performance.png" alt="가격구간별 성과" style="max-width: 100%; display: block; margin: 10px auto; border-radius: 8px;">
+
+![가격 분포](../images/price_dist.png)
+
+![가격구간별 성과](../images/price_performance.png)
 
 - **주요 관찰 패턴**: IT 베스트셀러는 주로 25,000원 ~ 35,000원 구간에서 높은 판매지수가 집중적으로 관찰됩니다.
 - **도출 가설**: 독자는 콘텐츠 전문성에 따라 특정 가격대를 합리적으로 수용하며, 단순 저가보다는 정보 가치와의 정합성이 중요하게 작용합니다.
@@ -70,7 +75,8 @@
 
 <div style="page-break-inside: avoid; margin-bottom: 2em;">
 <h2 style="color: #1e3a8a; border-left: 5px solid #3b82f6; padding-left: 12px; margin-top: 1.5em; margin-bottom: 0.5em;">4. 리뷰 및 판매 지수의 연관성 (Engagement Pattern)</h2>
-<img src="file:///c:/Users/View/wiset-inflearn/yes24/images/review_sales_scatter.png" alt="리뷰수 vs 판매지수" style="max-width: 100%; display: block; margin: 20px auto; border-radius: 8px;">
+
+![리뷰수 vs 판매지수](../images/review_sales_scatter.png)
 
 - **주요 관찰 패턴**: 리뷰 수와 판매지수가 일관된 선형 관계를 보이지 않으며, 리뷰는 판매 확보 이후 누적되는 후행 지표로 해석 가능한 패턴이 나타납니다.
 - **도출 가설**: 리뷰는 초기 판매 견인보다, 판매 이후 형성되는 반응 지표로서 도서의 신뢰도를 보완하는 패턴으로 작용합니다.
@@ -100,7 +106,8 @@
 
 <div style="page-break-inside: avoid; margin-bottom: 2em;">
 <h2 style="color: #1e3a8a; border-left: 5px solid #3b82f6; padding-left: 12px; margin-top: 1.5em; margin-bottom: 0.5em;">7. 가설 검증 (Validation)</h2>
-<img src="file:///c:/Users/View/wiset-inflearn/yes24/images/efficiency_verification_scatter.png" alt="효율성 검증 산점도" style="max-width: 100%; display: block; margin: 20px auto; border-radius: 8px;">
+
+![효율성 검증 산점도](../images/efficiency_verification_scatter.png)
 
 - **상관계수 분석**: 상관계수는 <b>-0.1698</b>로 산출되었으며, 두 변수 사이에 <b>뚜렷한 선형 관계가 확인되지 않음</b>을 통계적으로 보여줍니다.
 - **그룹 비교 분석**: 효율성 기준 3개 그룹 비교 결과, 판매지수 간에 <b>유의미한 차이가 나타나지 않았습니다.</b>
