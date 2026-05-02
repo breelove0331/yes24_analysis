@@ -109,11 +109,20 @@
 
 ![효율성 검증 산점도](../images/efficiency_verification_scatter.png)
 
+<div style="background-color: #f8fafc; border-radius: 8px; padding: 15px; margin: 15px 0; border: 1px solid #e2e8f0;">
+<b>🔍 그룹별 시장적 의미 (Group Definitions)</b>
+<ul style="margin-top: 5px; margin-bottom: 0;">
+    <li><b>High (고효율 집단)</b>: 판매량 대비 리뷰가 압도적으로 많은 <b>'고관여/팬덤형'</b> 도서. 독자 응집력이 강함.</li>
+    <li><b>Mid (중효율 집단)</b>: 판매와 리뷰가 시장 평균 비율을 따르는 <b>'보편적/표준형'</b> 도서.</li>
+    <li><b>Low (저효율 집단)</b>: 판매량은 매우 높으나 리뷰 참여는 낮은 <b>'실용적/목적 구매형'</b> 도서. 대중적 소비 중심.</li>
+</ul>
+</div>
+
 - **상관계수 분석**: 상관계수는 <b>-0.1698</b>로 산출되었으며, 두 변수 사이에 <b>뚜렷한 선형 관계가 확인되지 않음</b>을 통계적으로 보여줍니다.
-- **그룹 비교 분석**: 효율성 기준 3개 그룹 비교 결과, 판매지수 간에 <b>유의미한 차이가 나타나지 않았습니다.</b>
+- **그룹 비교 분석**: 효율성 기준 3개 그룹(High/Mid/Low) 비교 결과, 그룹 간 판매지수에서 <b>유의미한 차이가 나타나지 않았습니다.</b>
 
 <div style="background-color: #f0f9ff; border-radius: 8px; padding: 15px; border-left: 4px solid #3b82f6; margin: 15px 0;">
-<b>💡 검증 인사이트 요약</b>: 리뷰 효율성은 판매 성과를 설명하는 주요 설명 변수로 보기 어려우며, 설명 변수로서 한계가 존재함이 확인되었습니다.
+<b>💡 검증 인사이트 요약</b>: 리뷰 효율성(독자 참여 밀도)은 판매 성과를 설명하는 주요 변수가 아니며, <b>팬덤형 도서라고 해서 대중적 판매 지수가 반드시 더 높은 것은 아님</b>이 확인되었습니다.
 </div>
 </div>
 
