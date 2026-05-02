@@ -75,7 +75,7 @@ with col_summary_2:
         st.subheader("📊 핵심 요약 (Executive Summary)")
         st.markdown("""
         *   **트렌드**: AI/ChatGPT/Python 등 기술 키워드가 상위권에서 반복 관찰됨
-        *   **가격**: 25,000~35,000원 구간에서 높은 판매 집중 현상 확인
+        *   **가격**: 15,000~20,000원 저가 구간에서 가장 높은 평균 판매 성과 확인
         *   **리뷰**: 리뷰는 판매의 선행 지표가 아닌 사후 반응인 **후행 지표**로 해석됨
         """)
 
@@ -100,7 +100,7 @@ if df is not None and not df.empty:
         st.metric("최고 판매지수", f"{max_sales:,}")
 
     # --- 섹션 1: 출판사 및 가격 패턴 ---
-    st.header("1. 시장 점유 및 가격 수용 패턴")
+    st.header("1. 시장 점유 및 가격 수용 패턴 [EDA]")
     row1_1, row1_2 = st.columns(2)
     
     with row1_1:
@@ -123,10 +123,10 @@ if df is not None and not df.empty:
         fig_price = px.line(price_group, x='label', y='판매지수', markers=True,
                            color_discrete_sequence=['#3B82F6'])
         st.plotly_chart(fig_price, use_container_width=True)
-        st.info("💡 **관찰 결과**: 2.5만~3.5만 원 구간에서 평균 판매지수가 집중되는 명확한 시장 수용 가격 구간이 확인됩니다.")
+        st.info("💡 **관찰 결과**: 가격이 낮아질수록 평균 판매지수가 상승하는 명확한 **우하향 패턴**이 관찰되며, 특히 1.5만~2만 원 구간에서 가장 높은 성과가 나타납니다.")
 
     # --- 섹션 2: 키워드 분석 ---
-    st.header("2. 제목 키워드 트렌드 패턴")
+    st.header("2. 제목 키워드 트렌드 패턴 [EDA]")
     
     def get_keywords(titles):
         import re
@@ -151,7 +151,7 @@ if df is not None and not df.empty:
         st.info("💡 **관찰 결과**: 최신 기술 트렌드를 반영한 키워드가 포함된 도서들이 상위권에서 반복적으로 관찰됩니다.")
 
     # --- 섹션 3: 리뷰 및 효율성 분석 ---
-    st.header("3. 독자 참여 패턴 및 효율성 검증")
+    st.header("3. 독자 참여 및 효율성 가설 검증 [Hypothesis & Validation]")
     
     tab1, tab2 = st.tabs(["📊 리뷰 연관성 분석", "🧪 가설 검증 (Validation)"])
     
@@ -187,15 +187,16 @@ if df is not None and not df.empty:
         col_v1, col_v2 = st.columns(2)
         with col_v1:
             st.metric("효율성-판매 상관계수", f"{corr:.4f}")
-            st.write("**검증 결과**: 뚜렷한 선형 관계가 확인되지 않음")
+            st.write("**검증 결과**: 상관관계가 거의 없음 (0.2 미만)")
+            st.caption("※ 리뷰 효율성을 통해 판매 성과를 예측할 수 없음을 의미")
         with col_v2:
             st.write("**그룹별 평균 판매지수**")
             st.table(group_stats)
         
-        st.error("💡 **검증 결론**: 리뷰 효율성은 판매 성과를 설명하는 **주요 설명 변수로 보기 어려우며**, 설명 변수로서 한계가 존재함이 통계적으로 확인되었습니다.")
+        st.error("💡 **검증 결론**: 리뷰 효율성은 판매 성과를 설명하는 **주요 설명 변수로 보기 어려우며**, 팬덤형 도서가 대중적 판매 성과를 보장하지 않음이 통계적으로 확인되었습니다.")
 
     # --- 섹션 4: Action Insight ---
-    st.header("8. 📌 Action Insight (실무 활용 시사점)")
+    st.header("8. 📌 실무 활용 시사점 [Action Insight]")
     
     ai_col1, ai_col2 = st.columns(2)
     with ai_col1:
@@ -203,8 +204,8 @@ if df is not None and not df.empty:
         st.markdown("""
         *   **키워드 전략**: 상위 도서의 트렌드 키워드 반복 노출 패턴 활용  
             → **신간 기획 시 핵심 기술 키워드 전면 배치 전략 활용 가능**
-        *   **가격 포지셔닝**: 2.5만 ~ 3.5만 원 구간의 높은 판매 집중 확인  
-            → **해당 구간을 목표 수용 가격대로 설정 및 가격 설계 적용 가능**
+        *   **가격 포지셔닝**: 1.5만 ~ 2.0만 원 저가 구간에서 압도적인 판매 볼륨 패턴 확인  
+            → **대중적 베스트셀러 진입을 위해서는 경쟁력 있는 저가 포지셔닝 전략 적용 가능**
         """)
     
     with ai_col2:
@@ -229,7 +230,7 @@ if df is not None and not df.empty:
     특히 리뷰 성과는 판매의 직접적 원인이 아닌 사후 반응 패턴임이 검증되었습니다.
     
     **최종 제언**: 
-    → **"데이터가 증명하는 시장 수용 패턴(키워드, 가격)을 기획의 기본 프레임으로 설정하고, 마케팅 자원은 초기 도달률 확보에 집중할 것"**
+    → **"저가 구간에서 발생하는 압도적인 판매 볼륨 패턴을 확인하였으며, 대중적 성과를 목표로 할 경우 공격적인 가격 경쟁력 확보가 필수적임"**
     """)
     
     st.caption("**분석 한계**: 본 분석은 베스트셀러 집단에 한정된 패턴 분석이며, 인과 관계 규명이 아닌 경향 파악이 목적입니다.")

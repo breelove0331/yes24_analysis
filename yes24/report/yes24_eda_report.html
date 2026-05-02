@@ -3,56 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YES24 IT 베스트셀러 패턴 분석 리포트</title>
+    <title>IT 도서 시장 전략 제안 리포트</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; background: #f4f7f6; }
-        .card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        h1 { color: #1a365d; text-align: center; }
-        h2 { color: #2b6cb0; border-left: 4px solid #4299e1; padding-left: 10px; margin-top: 30px; }
-        .highlight { background: #ebf8ff; padding: 15px; border-radius: 4px; border-left: 4px solid #3182ce; }
-        img { max-width: 100%; height: auto; border-radius: 4px; margin: 20px 0; border: 1px solid #ddd; }
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        th, td { border: 1px solid #e2e8f0; padding: 10px; text-align: left; }
-        th { background: #f8fafc; }
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #64748b;
+            --accent: #3b82f6;
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        @media print {
+            @page { size: A4; margin: 15mm; }
+            body { background: white !important; padding: 0 !important; }
+            .container { box-shadow: none !important; border: none !important; margin: 0 !important; width: 100% !important; max-width: 100% !important; }
+            .page-break { page-break-before: always; }
+        }
+
+        body {
+            font-family: 'Noto Sans KR', 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 50px 70px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 25px;
+        }
+
+        h1 { color: var(--primary); font-size: 2.2rem; margin: 0; font-weight: 700; line-height: 1.3; }
+        .meta-info { color: var(--secondary); margin-top: 10px; font-size: 1.1rem; }
+
+        h2 {
+            color: var(--primary); font-size: 1.7rem; border-left: 6px solid var(--accent);
+            padding-left: 15px; margin: 45px 0 20px;
+            background: linear-gradient(to right, #f0f9ff, transparent);
+        }
+
+        h3 { color: var(--accent); font-size: 1.3rem; margin-top: 30px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+
+        .key-message {
+            background: var(--primary); color: white; padding: 12px 20px;
+            border-radius: 6px; margin: 15px 0; font-weight: 500; font-size: 1.05rem;
+        }
+
+        .interpretation-box {
+            background: #f8fafc; padding: 20px; border-radius: 10px;
+            border: 1px solid var(--border); margin: 20px 0; font-size: 0.95rem; color: var(--secondary);
+        }
+
+        .summary-card {
+            background: #f0f9ff; border-left: 5px solid var(--accent);
+            padding: 25px; border-radius: 12px; margin: 25px 0;
+        }
+
+        .action-card {
+            background: #ffffff; padding: 25px; border-radius: 12px;
+            border: 1px solid var(--border); margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .kpi-tag {
+            display: inline-block; background: #e0f2fe; color: #0369a1;
+            padding: 4px 10px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; margin-top: 10px;
+        }
+
+        img {
+            max-width: 100%; height: auto; display: block; margin: 30px auto;
+            border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: flex-start; }
+
+        .executive-conclusion {
+            background: var(--primary); color: white; padding: 35px;
+            border-radius: 12px; margin-top: 50px; text-align: center;
+            font-size: 1.2rem; font-weight: 500; line-height: 1.5;
+        }
+
+        footer { margin-top: 60px; text-align: center; color: var(--secondary); font-size: 0.9rem; }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1>YES24 IT 베스트셀러 패턴 분석 리포트</h1>
-        <p style="text-align:center; color: #718096;">데이터 기반 출판 기획 전략 리포트</p>
+    <div class="container">
+        <header>
+            <h1>[전략 제안] IT 도서 시장 점유율 확대를 위한<br>데이터 기반 타깃 마케팅 및 큐레이션 전략</h1>
+            <p class="meta-info">Data-Driven Strategy Proposal for Cheil Pentai Portfolio</p>
+        </header>
 
-        <h2>1. 분석 목적 및 배경</h2>
-        <p>YES24 IT 베스트셀러 데이터를 바탕으로 상위 도서의 성공 패턴을 식별하고, 향후 기획에 필요한 인사이트를 도출합니다.</p>
-        <div class="highlight">
-            <b>핵심 인사이트:</b> AI/파이썬 등 트렌드 키워드 노출, 1.5~2만 원대 가격 책정, 그리고 리뷰 수 확보가 판매 성과의 핵심 동력입니다.
-        </div>
-
-        <h2>2. 데이터 개요</h2>
-        <table>
-            <tr><th>항목</th><th>내용</th></tr>
-            <tr><td>대상</td><td>YES24 IT/컴퓨터 베스트셀러 Top 100+</td></tr>
-            <tr><td>주요 변수</td><td>판매지수, 리뷰수, 평점, 정가, 제목 키워드</td></tr>
-        </table>
-        <img src="../images/publisher_share.png" alt="출판사 점유율">
-
-        <h2>3. 제목 키워드 및 가격 패턴</h2>
-        <img src="../images/keyword_trend.png" alt="키워드 트렌드">
-        <img src="../images/price_performance.png" alt="가격별 성과">
-        <p>최신 기술 키워드 반영과 입문서 타겟의 가격 정책이 효과적임을 확인했습니다.</p>
-
-        <h2>4. 성공 요인 분석 (Ridge Regression)</h2>
-        <div style="display: flex; gap: 20px; align-items: center;">
-            <div style="flex: 1;"><img src="../images/ridge_coefficients.png" alt="영향력 분석"></div>
-            <div style="flex: 1; background: #f7fafc; padding: 15px; border-radius: 4px;">
-                <b>기여도 순위:</b><br>
-                1. 리뷰 수 (압도적)<br>
-                2. 평점 (보조적)<br>
-                3. 정가 (미세한 음의 상관)
+        <section id="s1">
+            <h2>1. 분석 배경 및 목적</h2>
+            <p>본 분석은 YES24 IT/컴퓨터 카테고리의 데이터를 정밀 진단하여, <b>구매 전환율(CVR) 극대화 및 마케팅 효율성(ROAS) 제고</b>를 위한 의사결정 가이드라인 도출을 목적으로 합니다.</p>
+            
+            <div class="summary-card">
+                <h4 style="margin-top:0">핵심 인사이트 요약 (Executive Summary)</h4>
+                <ul>
+                    <li><b>[Demand]</b> AI·Python 등 DX 수요 중심의 키워드 선점은 유기적 유입 확보의 핵심 경로로 관찰됨.</li>
+                    <li><b>[Price]</b> 입문자 시장의 높은 가격 민감도로 인해 1.5~2만 원의 스윗스팟 가격대가 초기 확산에 유리한 패턴을 보임.</li>
+                    <li><b>[Trust]</b> 리뷰 지표는 성과 이후 누적되는 <b>'후행 지표(Lagging Indicator)'</b>이자 구매 확정을 돕는 사회적 증거로 해석됨.</li>
+                </ul>
             </div>
-        </div>
+        </section>
 
-        <h2>5. 종합 결론</h2>
-        <p>데이터 분석 결과, <b>리뷰 수</b>는 판매 성과를 예측하는 가장 강력한 지표입니다. 단순히 리뷰를 늘리는 것에 그치지 않고, 대중적인 주제 선정이 동반될 때 성과가 극대화됩니다.</p>
+        <section id="s2" class="page-break">
+            <h2>2. 브랜드 신뢰도 및 경쟁 구도 분석</h2>
+            <img src="../images/publisher_share.png" alt="출판사 점유율">
+            <div class="key-message">💡 Key Message: "브랜드 신뢰도는 IT 도서 선택의 제1 안전장치로서 작동하는 경향이 있습니다."</div>
+            <div class="interpretation-box">
+                - 상위권 전문 출판사의 과점 현상은 독자들이 검증된 브랜드를 리스크 완화 수단으로 선택함을 의미합니다.<br>
+                - **전략적 함의**: 신규 진입 시 전문 필진의 권위나 공신력 있는 커리큘럼을 강조하는 전략이 유효할 것으로 해석됩니다.
+            </div>
+        </section>
+
+        <section id="s3" class="page-break">
+            <h2>3. 키워드 분석: DX 수요 선점을 통한 유입 극대화</h2>
+            <img src="../images/keyword_trend.png" alt="키워드 트렌드">
+            <div class="key-message">💡 Key Message: "핵심 기술 키워드 선점은 유입 효율(CTR) 개선의 핵심 요인으로 관찰됩니다."</div>
+            <div class="interpretation-box">
+                - 파이썬 관련 키워드의 압도적 비중은 비전공자의 DT 전환 트렌드가 결합된 결과로 해석됩니다.<br>
+                - **마케팅 전략**: 2030 직장인 대상 '업무 자동화' 테마의 SNS 맞춤형 광고 집행 전략 적용이 권장됩니다.
+            </div>
+        </section>
+
+        <section id="s4" class="page-break">
+            <h2>4. 가격 전략: 시장 구조에 기반한 구매 허들 완화</h2>
+            <div class="grid-2">
+                <img src="../images/price_dist.png" alt="가격 분포">
+                <img src="../images/price_performance.png" alt="가격별 성과">
+            </div>
+            <div class="key-message">💡 Key Message: "IT 입문자의 높은 가격 민감도를 고려한 스윗스팟 가격 설계가 필수적입니다."</div>
+            <div class="interpretation-box">
+                - IT 도서 시장은 입문자 수요 비중이 커 가격 민감도가 매우 높게 형성되어 있습니다.<br>
+                - **전략적 함의**: 1.5만~2만원대 가격 포지셔닝은 초기 진입 장벽을 낮추고 판매 성과를 견인하는 경향이 뚜렷합니다.
+            </div>
+        </section>
+
+        <section id="s5" class="page-break">
+            <h2>5. 독자 참여 지표의 재해석: 사회적 증거(Social Proof)</h2>
+            <img src="../images/review_sales_scatter.png" alt="리뷰수 vs 판매지수">
+            <div class="key-message">💡 Key Message: "리뷰는 판매 성과 이후 누적되는 후행 지표이자 신뢰의 결과물로 해석됩니다."</div>
+            <div class="interpretation-box">
+                - 리뷰 수와 판매지수는 높은 연관성을 보이지만, 이는 <b>'후행 지표(Lagging Indicator)'</b>로서의 성격이 강한 것으로 관찰됩니다.<br>
+                - **비즈니스 의미**: 리뷰는 판매를 결정하기보다 성과 이후 신규 구매자의 안심 구매를 돕는 자산으로 활용됩니다.
+            </div>
+        </section>
+
+        <section id="s6" class="page-break">
+            <h2>6. 성과 기여 요인 정밀 분석 (Ridge Regression)</h2>
+            <div class="grid-2">
+                <img src="../images/ridge_coefficients.png" alt="Ridge 영향력 분석">
+                <div class="interpretation-box">
+                    <b>[분석적 코멘트]</b><br><br>
+                    본 분석은 변수 간 관계를 설명하기 위한 것이며, <b>인과관계를 검증하기 위한 목적은 아님</b>에 유의해야 합니다. 성과는 대중적 주제 선정과 가격 전략이 선행될 때 강화되는 경향을 보입니다.
+                </div>
+            </div>
+        </section>
+
+        <section id="s7" class="page-break">
+            <h2>7. 📌 실행 전략 및 핵심 성과 지표(KPI) 제언</h2>
+            <div class="action-card">
+                <h3 style="margin-top: 0;">① [유입 증대] 최신 기술 키워드 전면 배치 캠페인</h3>
+                <p>→ 검색 수요가 높은 키워드 최적화 및 타깃 광고 집행 전략 적용</p>
+                <div class="kpi-tag">목표 KPI: 검색 클릭률(CTR) 개선</div>
+            </div>
+            <div class="action-card">
+                <h3 style="margin-top: 0;">② [전환 최적화] 입문자 타깃의 스윗스팟 가격 설계</h3>
+                <p>→ 1.5~2만 원대 가격 포지셔닝을 통한 구매 장벽 완화 전략 실행</p>
+                <div class="kpi-tag">목표 KPI: 구매 전환율(CVR) 증가</div>
+            </div>
+            <div class="action-card">
+                <h3 style="margin-top: 0;">③ [신뢰 구축] 장기적 신뢰 자산 확보 캠페인</h3>
+                <p>→ 마이크로 인플루언서 협업을 통한 사회적 증거 누적 전략 실행</p>
+                <div class="kpi-tag">목표 KPI: 광고비 대비 매출액(ROAS) 개선</div>
+            </div>
+        </section>
+
+        <section id="s8" class="page-break">
+            <div class="executive-conclusion">
+                "신간 IT 도서 기획 시, 최신 기술 키워드 전략과 저가 포지셔닝(2만 원 이하)을 결합하는 것이 초기 판매 확보 및 베스트셀러 진입에 가장 유리한 전략으로 해석됩니다."
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2026 YES24 IT Bestseller Strategy Proposal | Prepared for Cheil Pentai Portfolio</p>
+        </footer>
     </div>
 </body>
 </html>
